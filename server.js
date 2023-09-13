@@ -1,11 +1,11 @@
 // IMPORTS
 const express = require('express')
 const app = express()
-
-require('dotenv').config()
-
 const PORT = process.env.PORT || 3000
 
+
+
+require('dotenv').config()
 // setup database 
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGO_URI
