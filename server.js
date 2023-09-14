@@ -4,8 +4,8 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 
-
 require('dotenv').config()
+
 // setup database 
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGO_URI
@@ -19,10 +19,14 @@ db.on('error', (err) => { console.log('ERROR: ' , err)})
 db.on('connected', () => { console.log('mongo connected')})
 db.on('disconnected', () => { console.log('mongo disconnected')})
 
+//Controllers
+const contactsController = require('./controllers/contacts2')
+
+//test route
 app.get('/', (req, res) => {
    res.send('Hello world!')
 })
 
 app.listen(PORT, () => {
-    console.log(`Server is listening on PORT: ${PORT}`)
+    console.log(`Server is listening on PORT: http://localhost:${PORT}`)
 })
