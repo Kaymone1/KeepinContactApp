@@ -20,6 +20,9 @@ const contactSchema = new mongoose.Schema({
     },
     comment: { type: String,
     },
+    image: {
+        type: String,
+    }
 });
 
 module.exports = mongoose.model('Contact', contactSchema);
