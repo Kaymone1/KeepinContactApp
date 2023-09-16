@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 // setup database 
 const mongoose = require('mongoose')
-const mongoURI = process.env.MONGO_URI
+const mongoURI = process.env.MONGO_URI;
 
 // connect to mongo 
 mongoose.connect(mongoURI)
