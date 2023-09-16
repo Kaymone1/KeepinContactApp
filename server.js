@@ -8,6 +8,8 @@ require('dotenv').config()
 // MIDDLEWARE 
 // this will parse the data create to "req.body object"
 app.use(express.urlencoded({ extended: true }))
+// app.use(methodOverride('_method'))
+app.use(express.static('public')); 
 
 // setup database 
 const mongoose = require('mongoose')
@@ -26,7 +28,7 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 const contactsController = require('./controllers/contacts')
 
 //route to contacts controller
-app.use('/contacts', contactsController)
+app.use('/', contactsController)
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT: http://localhost:${PORT}`)
