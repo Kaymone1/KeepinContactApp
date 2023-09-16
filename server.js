@@ -28,7 +28,14 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 const contactsController = require('./controllers/contacts')
 
 //route to contacts controller
-app.use('/', contactsController)
+//landing page 
+app.get('/', (req, res) => {
+    res.render('welcome.ejs')
+    // res.send('works')
+})
+
+//contacts page
+app.use('/contacts', contactsController)
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT: http://localhost:${PORT}`)

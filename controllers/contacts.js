@@ -6,7 +6,7 @@ const Contact = require('../models/contacts')
 
 
  // INDEX ROUTE -- list all of the contacts 
-router.get('/contacts', async (req, res) => {
+router.get('/', async (req, res) => {
     // render an index.ejs template w/list of contactss
 
     // add a database query to get the contacts 
@@ -59,7 +59,7 @@ router.put('/:id', async (req, res) => {
     try{
         req.body.readyToEat === 'on' ? req.body.readyToEat = true : req.body.readyToEat = false
         const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, {new: true})
-        res.redirect('/contacts/' + updateContact.id)
+        res.redirect('/contacts' + updateContact.id)
     } catch (err) {
         console.log("ERROR IN EDIT: ", err)
         res.status(500).send(err)
