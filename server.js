@@ -23,7 +23,7 @@ db.on('connected', () => { console.log('mongo connected')})
 db.on('disconnected', () => { console.log('mongo disconnected')})
 
 //Controllers
-const contactsController = require('./controllers/contacts')
+const contactsController = require('./controllers/contacts2')
 
 //route to contacts controller
 app.use('/contacts', contactsController)
