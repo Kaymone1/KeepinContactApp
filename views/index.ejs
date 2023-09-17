@@ -6,7 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hello</h1>
-    <%=contacts[0].name%>
+    <ul>
+        <% for (let i = 0; i < contacts.length; i++) { %>
+           <li>
+                <%=contacts[i].name %>
+                
+               <img src="<%=contacts[i].image %>" alt="contact image">
+           </li>
+       <% } %>
+   </ul>
 </body>
 </html>

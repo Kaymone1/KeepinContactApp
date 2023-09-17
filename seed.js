@@ -17,40 +17,45 @@ db.once('open', async () => {
     const seedData = [
         {
             name: "Ichigo Kurosaki",
-            number: 555557,
+            number: 505157,
             email: "IamASoulReaper@soulsociety.org",
             category: "Friend",
-            comment: "He CANNOT be around any Sternrittlers",
+            comment: "Quincies are a sensitive topic; He CANNOT be around any Sternritters",
+            image: "public/img/ichigo.jpeg",
         },
         {
             name: "Sasuke Uchiha",
-            number: 5550057,
+            number: 356057,
             email: "RipItachi@rogueninja.org",
             category: "Friend",
-            comment: "He tried to destroy the Hidden Leaf; friendship is questionable but NO Invite to festivals ",
+            comment: "He tried to destroy the Hidden Leaf; friendship is questionable but NO Invites to Village festivals ",
+            image: "public/img/Sasuke.jpeg",
     
         },
         {
             name: "Saturo Gojo",
-            number: 550557,
+            number: 750557,
             email: "ILoveMyStudents@JJKHigh.com",
             category: "Business",
             comment: "CALL FOR PROTECTION against high grade curses!!",
+            image: "public/img/Gojo.jpeg",
     
         },
         {
             name: "Monkey D. Luffy",
-            number: 555057,
+            number: 825057,
             email: "FuturePirateKing@Merryships.com",
             category: "Family",
-            comment: "NO POOL PARTIES; Anywhere he comes, HAVE FOOD",
+            comment: "NO WATER ACTIVITIES; Anywhere he comes, HAVE FOOD",
+            image: "public/img/Luffy.jpeg",
         },
         {
             'name': "Killua Zoldyck",
-            'number': 559557,
+            'number': 259557,
             'email': "Z.Assassins@heartStealers.net",
             'category': "Business",
-            'comment': "Family of assassins",
+            'comment': "Family of assassins; Stay on their good side!",
+            'image': "public/img/Killua.jpeg",
         }
     ];
 
