@@ -20,8 +20,7 @@ db.once('open', async () => {
             number: 505157,
             email: "IamASoulReaper@soulsociety.org",
             category: "Friend",
-            comment: "Quincies are a sensitive topic; He CANNOT be around any Sternritters",
-            image: "public/img/ichigo.jpeg",
+            comment: "Quincies are a sensitive topic; He CANNOT be around any Sternritters.",
         },
         {
             name: "Sasuke Uchiha",
@@ -29,8 +28,6 @@ db.once('open', async () => {
             email: "RipItachi@rogueninja.org",
             category: "Friend",
             comment: "He tried to destroy the Hidden Leaf; friendship is questionable but NO Invites to Village festivals ",
-            image: "public/img/Sasuke.jpeg",
-    
         },
         {
             name: "Saturo Gojo",
@@ -38,7 +35,6 @@ db.once('open', async () => {
             email: "ILoveMyStudents@JJKHigh.com",
             category: "Business",
             comment: "CALL FOR PROTECTION against high grade curses!!",
-            image: "public/img/Gojo.jpeg",
     
         },
         {
@@ -47,7 +43,6 @@ db.once('open', async () => {
             email: "FuturePirateKing@Merryships.com",
             category: "Family",
             comment: "NO WATER ACTIVITIES; Anywhere he comes, HAVE FOOD",
-            image: "public/img/Luffy.jpeg",
         },
         {
             'name': "Killua Zoldyck",
@@ -55,7 +50,6 @@ db.once('open', async () => {
             'email': "Z.Assassins@heartStealers.net",
             'category': "Business",
             'comment': "Family of assassins; Stay on their good side!",
-            'image': "public/img/Killua.jpeg",
         }
     ];
 

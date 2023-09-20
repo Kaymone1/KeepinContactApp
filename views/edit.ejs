@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Contact</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-    
+    <h1>Edit Contact</h1>
+    <form action="/contacts/<%= contact._id %>" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= contact.name %>" placeholder="Name" required>
+      
+      <label for="number">Phone Number:</label>
+      <input type="text" id="number" name="number" value="<%= contact.number %>" placeholder="Number" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<%= contact.email %>" placeholder="Email" required>
+      
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="Family" <%= (contact.category === 'Family') ? 'selected' : '' %>>Family</option>
+            <option value="Friend" <%= (contact.category === 'Friend') ? 'selected' : '' %>>Friend</option>
+            <option value="Business" <%= (contact.category === 'Business') ? 'selected' : '' %>>Business</option>
+        </select>
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" placeholder="Comment"><%= contact.comment %></textarea>
+
+        <button type="submit">Update</button>
+    </form>
+    <a href="/contacts">Back to Contact List</a>
 </body>
 </html>

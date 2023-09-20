@@ -1,6 +1,7 @@
 // IMPORTS
 const express = require('express')
 const app = express()
+const methodOverride = require('method-override')
 const PORT = process.env.PORT || 3000
 
 require('dotenv').config()
@@ -8,7 +9,7 @@ require('dotenv').config()
 // MIDDLEWARE 
 // this will parse the data create to "req.body object"
 app.use(express.urlencoded({ extended: true }))
-// app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))
 app.use(express.static('public')); 
 
 // setup database 

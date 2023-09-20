@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact View</title>
 </head>
 <body>
-    
+    <h1>Contact Details</h1>
+
+    <h3>
+        <a href="/contacts/<%= contact._id %>/edit" class="button">Edit This Contact</a>
+    </h3>
+    <div class="contact-details">
+        <h2>Name: <%= contact.name %></h2>
+        <p>Number: <%= contact.number %></p>
+        <p>Email: <%= contact.email %></p>
+        <p>Category: <%= contact.category %></p>
+        <p>Comment: <%= contact.comment %></p>
+    </div>
+    <a href="/contacts">Back to Contact List</a>
 </body>
 </html>

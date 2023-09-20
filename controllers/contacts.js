@@ -20,9 +20,11 @@ router.get('/', async (req, res) => {
 
 // NEW ROUTE to render "new.ejs"
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
     // res.send('works')
-})
+    res.render('new.ejs', { contact: {} }); // Pass empty object for the new contact
+}); 
+    
+
 
 // SHOW ROUTE to render "show.ejs" -- info about JUST ONE contact 
 router.get('/:id', async (req, res) => {
@@ -54,18 +56,17 @@ router.post('/', async (req, res) => {
     }
 })
 
-// PUT ROUTE - "Edit a contact"
+// PUT ROUTE - "Update a contact"
 router.put('/:id', async (req, res) => {
-    try{
-        req.body.readyToEat === 'on' ? req.body.readyToEat = true : req.body.readyToEat = false
-        const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, {new: true})
-        res.redirect('/contacts' + updateContact.id)
+    console.log(req.body)
+    try {
+        const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.redirect(`/contacts/${updatedContact._id}`);
     } catch (err) {
-        console.log("ERROR IN EDIT: ", err)
-        res.status(500).send(err)
+        console.log(err);
+        res.status(500).send(err);
     }
-
-})
+});
 
 // DELETE ROUTE "Delete"
 router.delete('/:id', async (req, res) => {
