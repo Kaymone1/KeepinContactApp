@@ -2,11 +2,8 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const PORT = process.env.PORT 
 const session = require('express-session')
 const bcrypt = require('bcrypt')
-
-
 
 require('dotenv').config()
 
@@ -22,6 +19,7 @@ app.use(
       saveUninitialized: false
     })
 )
+const PORT = process.env.PORT
 
 // setup database 
 const mongoose = require('mongoose')
@@ -38,7 +36,11 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 
 //Controllers
 const contactsController = require('./controllers/contacts')
+const userController = require('./controllers/user.js')
 
+//using controller pages app.use
+app.use('/contacts', contactsController)
+app.use('/user', userController)
 
 //route to contacts controller
 //landing page 
@@ -71,8 +73,6 @@ app.get('/updateSession', (req, res) => {
 })
 
 
-//contacts page
-app.use('/contacts', contactsController)
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT: http://localhost:${PORT}`)
