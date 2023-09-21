@@ -13,21 +13,39 @@
             <a href="/contacts/new" class="button">Create New Contact</a>
         </div>
     </div>
-    <ul>
-        <% contacts.forEach(function(contact) { %>
-            <li style="list-style: none; display: flex; align-items: center;">
-                <div>
-                    <h2><a href="/contacts/<%= contact._id %>"><%= contact.name %></a></h2>
-                    <p><strong>Category:</strong> <%= contact.category %></p>
-                </div>
-                <div class="navs">
-                    <a href="/contacts/<%= contact._id %>/edit" class="edit-link">Edit</a>
-                    <form action="/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display: inline;">
-                        <button class="delete-button" type="submit">Delete</button>
-                    </form>
-                </div>
-            </li>
-        <% }); %>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contacts.forEach(function(contact) { %>
+                <tr>
+                    <td>
+                        <div class="contact-image">
+                            <img src="<%= contact.imageUrl %>" alt="<%= contact.name %>" class="contact-icon">
+                        </div>
+                    </td>
+                    <td>
+                        <a href="/contacts/<%= contact._id %>"><%= contact.name %></a>
+                    </td>
+                    <td><%= contact.category %></td>
+                    <td>
+                        <a href="/contacts/<%= contact._id %>/edit" class="edit-link">Edit</a>
+                    </td>
+                    <td>
+                        <form action="/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display: inline;">
+                            <button class="delete-button" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 </html>
