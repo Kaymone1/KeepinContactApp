@@ -10,6 +10,7 @@
     <h1>Edit Contact</h1>
     <form action="/contacts/<%= contact._id %>" method="POST">
       <label for="name">Name:</label>
+
       <input type="text" id="name" name="name" value="<%= contact.name %>" placeholder="Name" required>
       
       <label for="number">Phone Number:</label>
