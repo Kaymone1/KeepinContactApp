@@ -2,8 +2,10 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT 
 const session = require('express-session')
+const bcrypt = require('bcrypt')
+
 
 
 require('dotenv').config()
@@ -36,6 +38,7 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 
 //Controllers
 const contactsController = require('./controllers/contacts')
+
 
 //route to contacts controller
 //landing page 
