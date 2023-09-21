@@ -3,6 +3,8 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const PORT = process.env.PORT || 3000
+const session = require('express-session')
+
 
 require('dotenv').config()
 
@@ -10,7 +12,14 @@ require('dotenv').config()
 // this will parse the data create to "req.body object"
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-app.use(express.static('public')); 
+app.use(express.static('public'));
+app.use(
+    session({
+      secret: process.env.SECRET,
+      resave: false,
+      saveUninitialized: false
+    })
+)
 
 // setup database 
 const mongoose = require('mongoose')
@@ -34,6 +43,30 @@ app.get('/', (req, res) => {
     res.render('welcome.ejs')
     // res.send('works')
 })
+
+//baking cookies (session) I want to save data from user interactions with my site
+app.get('/any', (req, res) => {
+    req.session.anyProperty = 'something'
+    res.redirect('/') 
+})
+//get back  data from past session
+app.get('/fetch', (req, res) => {
+    if (req.session.anyProperty === 'something') {
+        //test to see if that value exists
+        //do something if it's a match
+        console.log('it matches! cool')
+      } else {
+        //do something else if it's not
+        console.log('nope, not a match')
+      }
+      res.redirect('/') 
+})
+
+app.get('/updateSession', (req, res) => {
+    req.session.anyProperty = 'not something'
+    res.redirect('/') // '/' bc thats my home route
+})
+
 
 //contacts page
 app.use('/contacts', contactsController)
