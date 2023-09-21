@@ -2,8 +2,7 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const session = require('express-session')
-const bcrypt = require('bcrypt')
+
 
 require('dotenv').config()
 
@@ -36,11 +35,11 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 
 //Controllers
 const contactsController = require('./controllers/contacts')
-const userController = require('./controllers/user.js')
+
 
 //using controller pages app.use
 app.use('/contacts', contactsController)
-app.use('/user', userController)
+
 
 //route to contacts controller
 //landing page 
@@ -48,30 +47,6 @@ app.get('/', (req, res) => {
     res.render('welcome.ejs')
     // res.send('works')
 })
-
-//baking cookies (session) I want to save data from user interactions with my site
-app.get('/any', (req, res) => {
-    req.session.anyProperty = 'something'
-    res.redirect('/') 
-})
-//get back  data from past session
-app.get('/fetch', (req, res) => {
-    if (req.session.anyProperty === 'something') {
-        //test to see if that value exists
-        //do something if it's a match
-        console.log('it matches! cool')
-      } else {
-        //do something else if it's not
-        console.log('nope, not a match')
-      }
-      res.redirect('/') 
-})
-
-app.get('/updateSession', (req, res) => {
-    req.session.anyProperty = 'not something'
-    res.redirect('/') // '/' bc thats my home route
-})
-
 
 
 app.listen(PORT, () => {
