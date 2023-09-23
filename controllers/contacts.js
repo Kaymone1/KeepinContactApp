@@ -80,7 +80,7 @@ router.post('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const contact = await Contact.findByIdAndDelete(req.params.id);
-        console.log(`Deleted contact: ${contact}`);
+        console.log(`Deleted contact: ${contact.id}`);
         res.redirect('/contacts');
     } catch (err) {
         console.log("ERROR ON DELETE REQUEST: ", err);
