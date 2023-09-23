@@ -4,27 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact View</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            font-size: large;
+        }
+        a:hover {
+        color:rgb(255, 255, 0);
+        }
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: purple;
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .contact-details {
+            background-color: #bab6b6;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .contact-details h2 {
+            margin-top: 0;
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+        h1 {
+            text-align: left;
+        }
+        h2 {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Contact Details</h1>
-    
-    <h3>
+    <div class="container">
+        <h1>Details</h1>
+        
         <a href="/contacts/<%= contact._id %>/edit" class="button">Edit This Contact</a>
-    </h3>
-    <div class="contact-details">
-        <h2>Name: <%= contact.name %></h2>
-        <p>Number: <%= contact.number %></p>
-        <p>Email: <%= contact.email %></p>
-        <p>Category: <%= contact.category %></p>
-        <p>Comment: <%= contact.comment %></p>
-    </div>
-    
-    <% if (contact.imageUrl) { %>
-        <div class="image-container">
-            <img src="<%= contact.imageUrl %>" alt="<%= contact.name %>">
+        
+        <% if (contact.imageUrl) { %>
+            <div class="image-container">
+                <img class="w3-circle" src="<%= contact.imageUrl %>" alt="<%= contact.name %>">
+            </div>
+        <% } %>
+        
+        <div class="contact-details">
+            <h2>Name: <%= contact.name %></h2>
+            <p>Number: <%= contact.number %></p>
+            <p>Email: <%= contact.email %></p>
+            <p>Category: <%= contact.category %></p>
+            <p>Comment: <%= contact.comment %></p>
         </div>
-    <% } %>
-    
-    <a href="/contacts">Back to Contact List</a>
+        
+        <a href="/contacts">Back to Contact List</a>
+    </div>
 </body>
 </html>

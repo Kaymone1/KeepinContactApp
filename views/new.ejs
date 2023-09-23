@@ -3,24 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Edit Contact</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style>
+        /* Add custom styles for your edit page here */
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: purple;
+            color: white;
+            padding: 10px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 60%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        select {
+            height: 40px; 
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: purple;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-container {
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: purple;
+        }
+    </style>
 </head>
 <body>
     <h1>New Contact Page</h1>
     <form action="/contacts" method="POST">
-        Name: <input type="text" name="name" value="<%= contact.name %>" placeholder="Name">
-        Phone Number: <input type="text" name="number" value="<%= contact.number %>" placeholder="Number">
-        Email: <input type="text" name="email" value="<%= contact.email %>" placeholder="Email">
-        Category:
-        <select name="category">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<%= contact.name %>" placeholder="Name">
+
+        <label for="number">Phone Number:</label>
+        <input type="text" name="number" value="<%= contact.number %>" placeholder="Number">
+        
+        <label for="email"> Email</label>
+        <input type="text" name="email" value="<%= contact.email %>" placeholder="Email">
+
+        <label for="category">Category:</label>
+            <select name="category">
             <option value="Family">Family</option>
             <option value="Friend">Friend</option>
             <option value="Business">Business</option>
         </select>
+
+        <label for="comment">Image URL:</label>
+        <input type="text" name="imageUrl" value="<%= contact.imageUrl %>" placeholder="Image URL">
+
+        <label for="comment">Comment:</label>
+        <textarea name="comment" placeholder="Comment"><%= contact.comment %></textarea>
         
-        Image URL: <input type="text" name="imageUrl" value="<%= contact.imageUrl %>" placeholder="Image URL">
-        Comment: <textarea name="comment" placeholder="Comment"><%= contact.comment %></textarea>
-        <input type="submit" value="Create New Contact"/>
+        <div class="button-container">
+            <input type="submit" value="Create New Contact" class="create-btn"/>
+        </div>
     </form>
 </body>
+<a href="/contacts">Back to Home Page</a>
 </html>
